@@ -307,28 +307,40 @@ function Tape_get_ips(){
 }
 
 function Tape_Help_btn(){
-    alert(`Coded for Rafsoda Studios By Almog Nachmany
-        If you enjoyed this endeavor please considering buying me a coffee!
-        Links:
-        https://buymeacoffee.com/kvothe42
-        https://github.com/almogn42/Serial_Tape_a810
-        https://gitlab.com/kvothe42-public/serial_tape_a810
+    text =(
+`Coded for Rafsoda Studios By Almog Nachmany
+If you enjoyed this endeavor please considering buying me a coffee!
+Links:
+    https://buymeacoffee.com/kvothe42
+    https://github.com/almogn42/Serial_Tape_a810
+    https://gitlab.com/kvothe42-public/serial_tape_a810
          
         
-        Clerifications:
-        -   Quick Loc: Creates a location button at the current time stamp
-            Works While: Stoped,  Playing, Fast Foword/Back
+Clarifications:
+-   Quick Loc: creates a quick location button at the current time. 
+    Works during play, record and fw/rw as well. Location names are editable.
         
-        -   Zero Loc: Scrolls to the tape Zero Location
+-   Zero Loc: winds back the reel to the tape's predefined Zero Location
 
-        -   Link CH: Limks the Channeles togethter so that any change
-            will happend on both of them in respact to the state
-            they were when linked
+-   Link CH: links the left and right channels status' together. 
+    Applicable to SAFE, READY, INPUT, SYNC and REPRO. 
 
-        -   Loc Time Input: the loc time input in the middele
-            can accept only full timestamps
-            Examples: [-06:00:05], [08:59:42], [00:00:00]
-        `)
+-   Digital Counter: in addition to your machine's counter which is synced with
+    the app's counter you have a digital counter,
+    used to insert custom locations or to re-set your machine's counter
+    using the Set Timer button.
+    Please note: the app's digital counter can ONLY accept full timestamps.
+    For Example: [-06:00:05], [08:59:42], [00:00:00]
+`)
+    let pre = document.querySelector("pre");
+    pre.innerHTML =text
+    let diag = document.querySelector("dialog");
+    diag.showModal();
+}
+
+function diag_close(){
+    let diag = document.querySelector("dialog");
+    diag.close()
 }
 
 function On_Load_Init(){
@@ -362,7 +374,8 @@ function On_Load_Init(){
     document.querySelectorAll(".Channel_option").forEach(btn => {btn.addEventListener("change" ,Tape_Chanl_input_State)});
     document.querySelector("#link_chnl_btn").addEventListener("click",Tape_Chanl_input_join);
     document.querySelector("#help_btn").addEventListener("click",Tape_Help_btn);
-    
+    document.querySelector("#diag_btn").addEventListener("click",diag_close);
+
     
 
 }

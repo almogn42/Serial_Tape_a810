@@ -259,3 +259,17 @@ button#add_loc_btn, button#zero_loc_btn, button#ips_value, .Channel_option, #cha
 #link_chnl_btn svg{
     margin-top: 0.2em;
 }
+
+/* Setting for dialog ? */
+
+dialog{
+    background-color: #44444400;
+    border: 1px solid #777;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(1em);   
+}
