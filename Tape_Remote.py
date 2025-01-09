@@ -6,6 +6,7 @@ import serial_console as sercon
 # Set web files folder
 eel.init('web')
 
+
 # Set web files folder and optionally specify which file types to check for eel.expose()
 #   *Default allowed_extensions are: ['.js', '.html', '.txt', '.htm', '.xhtml']eel.init('web', allowed_extensions=['.js', '.html'])@eel.expose  #This is how you expose the py functions below for javascript.
 
@@ -130,6 +131,7 @@ def Timer_Return():
 ports = sercon.Serial_connect()
 if type(ports) == list:
     eel.start("tape_interface-serial-conn.html", size = (874, 970))             # Eel command for starting app. size is for window sizing    
+    # eel.start("tape_interface-serial-conn.html",  mode='custom', cmdline_args=['chrome-win/chrome.exe', '--app=http://localhost:8000/tape_interface-serial-conn.html'], size = (874, 970))             # Eel command for starting app. size is for window sizing    
 
 elif ports == "there is no serial port connectetd":
     eel.start("tape_interface-serial-conn.html", size = (874, 970))             # Eel command for starting app. size is for window sizing    
@@ -144,3 +146,4 @@ else:
 
 # eel.start("tape_interface3.html", size = (874, 970))             # Eel command for starting app. size is for window sizing
 # eel.start("tape_interface-serial-conn.html", size = (1280, 720))             # Eel command for starting app. size is for window sizing
+# --app
