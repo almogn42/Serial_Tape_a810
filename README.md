@@ -1,6 +1,19 @@
 # Serial Tape A810
 client to controll studer a810 tapes via srial connection
 
+## Dowloding executable
+**Requirements**
+  - MPV (if you want to play with local player and not web player)
+  - Selenium Driver
+
+*the instruction to install the requerments are at the end 
+
+### Links
+Linux - https://gitlab.com/kvothe42-public/sdarot-player/-/jobs/3311935194/artifacts/file/dist/sdarot-player
+
+Windows - https://gitlab.com/kvothe42-public/sdarot-player/-/jobs/3311935193/artifacts/file/dist/windows/sdarot-player.exe
+
+## Runnig Script
 
 **Requirements**
   - Python3
