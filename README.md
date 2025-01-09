@@ -3,15 +3,17 @@ client to controll studer a810 tapes via srial connection
 
 ## Dowloding executable
 **Requirements**
-  - MPV (if you want to play with local player and not web player)
-  - Selenium Driver
+  -  chrome browser
 
-*the instruction to install the requerments are at the end 
 
 ### Links
 Linux - https://gitlab.com/kvothe42-public/sdarot-player/-/jobs/3311935194/artifacts/file/dist/sdarot-player
 
-Windows - https://gitlab.com/kvothe42-public/sdarot-player/-/jobs/3311935193/artifacts/file/dist/windows/sdarot-player.exe
+Windows:
+ -  folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+-Faster-load-time.rar
+     *   the file can run only from within the folder so i recommend creating as shortcut and put him in a easy to reach location
+ -  single file- https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+.exe
+     *  the single file vesion is slow yo start use it **only** if you have patiance :-)
 
 ## Runnig Script
 
