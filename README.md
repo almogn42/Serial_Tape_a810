@@ -71,7 +71,7 @@ Please consult the added documantation here on a full list of all available comm
 
 This app was designed for internal purposes at Rafsoda Studios and we're now offering it to the public, please use with caution - by using this software you assume all responsibility.
 
-This work is a labour of love for the analog domain and the beautiful technology that is Tape recording. We have put time and effort into this, and if you find this app useful or if you find value in our work please kindly conside buying us a coffee, we'd highly appreciate it:
+This work is a labor of love for the analog domain and the beautiful technology that is Tape recording. We have put time and effort into this, and if you find this app useful or if you find value in our work please kindly conside buying us a coffee, we'd highly appreciate it:
 https://buymeacoffee.com/kvothe42
 
 Have fun!
