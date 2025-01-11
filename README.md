@@ -1,9 +1,11 @@
 # Serial Tape A810
 client to controll studer a810 tapes via srial connection
 
-## Dowloding executable
+## Download & Executable - executable
 **Requirements**
   -  chrome browser
+
+**
 
 
 ### Links
