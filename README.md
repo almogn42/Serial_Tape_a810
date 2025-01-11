@@ -1,11 +1,11 @@
 # Serial Tape A810+
 A Studer A8xx series software controller via serial connection
 
+![Tape visuals](https://github.com/almogn42/Serial_Tape_a810/blob/0daa5080887f1152cf56e86e43fd5f4645f5d4b0/tape_visuals.png)
+
 ## Download & Executables
 **Requirements**
   -  Chrome browser
-
-**
 
 
 ### Links
