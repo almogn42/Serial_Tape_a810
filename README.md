@@ -9,7 +9,8 @@ client to controll studer a810 tapes via srial connection
 
 
 ### Links
-Linux - https://gitlab.com/kvothe42-public/sdarot-player/-/jobs/3311935194/artifacts/file/dist/sdarot-player
+MAC
+  -  arm: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/arm-mac-Serial-Tape-a810+.app.rar
 
 Windows:
  -  folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+-Faster-load-time.rar
