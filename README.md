@@ -23,9 +23,9 @@ Windows:
 **Requirements**
   - Python3
   - Chrome browser
-  Libraries:
-  - eel
-  - pyserial
+  - **Libraries:**
+    - eel
+    - pyserial
 
 ## Module's Installation Commands \ Instructions
 
