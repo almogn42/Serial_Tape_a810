@@ -10,7 +10,7 @@ A Studer A8xx series software controller via serial connection
 
 ### Links
 MacOS (M1-3):
-https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/arm-mac-Serial-Tape-a810+.app.rar
+https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/Studer.Serial.A810+_MacOS.zip
 
 Windows:
  -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+-Faster-load-time.rar
