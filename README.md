@@ -63,11 +63,12 @@ Let's go over some added features as the most common ones (PLAY, STOP etc.) are 
 - Link CH: enables you to link channel status changes. Upon startup channels are not linked.
 
 
-Please note:
-This script was written for the Studer A810 machine family.
+**Please note:**
+
+**This script was written for the Studer A810 machine family.
 PLAY, STOP, FF, REWIND, REC, INPUT status and SAFE status *should* also work on Studer 27x, 807, 812 and 820. 
 Location coding is a bit different for some of the machine families so YMMV.
-Please consult the added documantation here on a full list of all available commands your machine can read - you're welcome to edit the code and add/revise it as you need!
+Please consult the added documantation here on a full list of all available commands your machine can read - you're welcome to edit the code and add/revise it as you need!**
 
 This app was designed for internal purposes at Rafsoda Studios and we're now offering it to the public, please use with caution - by using this software you assume all responsibility.
 
