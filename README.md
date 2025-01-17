@@ -13,7 +13,7 @@ MacOS (M1-3):
 https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/Studer.Serial.A810+_MacOS.zip
 
 Windows:
- -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+-Faster-load-time.rar
+ -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-x64-Serial-Tape-a810+-Faster-load-time.zip
      *   The file can only run from within the source code folder, so our recommendation is to create a shortcut and place it in an easy to reach location
  -  Single file Version - https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+.exe
      *  The single file version is slower as it downloads the neccassery protocols every time it runs, use this only if you're patient ;-)
