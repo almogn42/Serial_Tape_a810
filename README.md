@@ -6,7 +6,7 @@ A Studer A8xx series software controller via serial connection
 - [App Insructions](#App-Instructions)
 - [Bineries Download](#Download-&-Executables)
   - [Windows](#Windows)
-  - [Mac](#MacOS-(M1-3))
+  - [Mac](#macos-m1-3)
 - [Running As Python Script\Code](#Runnig-the-Script)
     - [Requirements](#Requirements)
     - [Modules Installation](#Modules-Installation-Commands-\-Instructions)
