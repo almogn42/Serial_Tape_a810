@@ -1,7 +1,20 @@
 # Serial Tape A810+
 A Studer A8xx series software controller via serial connection
 
+<!-- TOC -->
+
+- [App Insructions](##App-Instructions)
+- [Bineries Download](##Download-&-Executables)
+  - [Windows](####Windows)
+  - [Mac](####MacOS-(M1-3))
+- [Running As Python Script\Code](##Runnig-the-Script)
+    - [Requirements](####**Requirements**)
+    - [Modules Installation](##Module's-Installation-Commands-\-Instructions)
+
+<!-- /TOC -->
+
 ![Tape visuals](https://github.com/almogn42/Serial_Tape_a810/blob/0daa5080887f1152cf56e86e43fd5f4645f5d4b0/tape_visuals.png)
+
 
 ## App Instructions
 
@@ -34,10 +47,10 @@ Please consult the added documantation here on a full list of all available comm
 
 
 ### Links
-MacOS (M1-3):
+#### MacOS (M1-3):
 https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/Studer.Serial.A810+_MacOS.zip
 
-Windows:
+#### Windows:
  -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-x64-Serial-Tape-a810+-Faster-load-time.zip
      *   The file can only run from within the source code folder, so our recommendation is to create a shortcut and place it in an easy to reach location
  -  Single file Version - https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+.exe
@@ -45,7 +58,7 @@ Windows:
 
 ## Runnig the Script
 
-**Requirements**
+#### **Requirements**
   - Python3
   - Chrome browser
   - **Libraries:**
