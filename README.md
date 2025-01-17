@@ -9,7 +9,7 @@ A Studer A8xx series software controller via serial connection
   - [Mac](#MacOS-(M1-3))
 - [Running As Python Script\Code](#Runnig-the-Script)
     - [Requirements](#Requirements)
-    - [Modules Installation](#Module's-Installation-Commands-\-Instructions)
+    - [Modules Installation](#Modules-Installation-Commands-\-Instructions)
 
 <!-- /TOC -->
 
@@ -65,7 +65,7 @@ https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/Studer.S
     - eel
     - pyserial
 
-## Module's Installation Commands \ Instructions
+## Modules Installation Commands \ Instructions
 
 ***These instructions refer to a script written in python3, so please note that every time the word python is mentioned we're talking about python3. Make adjustments according to whatever version or OS you're working on.**
 
