@@ -9,6 +9,75 @@ async  function Run_Back_Function(func, dat){
     }
 
 
+class Logger{
+    constructor(){}
+
+    getCallerInfo() {
+
+        // uses an error to get the stack and get the info from within 
+        // when creatin the error object it does not rain an error (as it need to be raised to actually happend)
+        const err = new Error();
+        const stackLines = err.stack.split("\n");
+        
+        // removing eel background stack
+        // stackLines.pop()
+        
+        const callerLine = stackLines[3]; // Index 2 is the calling function
+        const match = callerLine.match(/at (\S+) \((.*):(\d+):(\d+)\)/) || callerLine.match(/at (.*):(\d+):(\d+)/);
+        
+        if (match) {
+            return {
+                functionName: match[1] || "anonymous",
+                fileName: match[2].split("/").pop() || "unknown",
+                line: match[3],
+                column: match[4],
+                a: callerLine
+            };
+        }
+    
+        return { functionName: "unknown", fileName: "unknown", line: "?", column: "?" };
+    }
+
+    Extra_Log(input_str, level="debug"){
+
+        input_str = input_str.toString()
+        let a = this.getCallerInfo()
+
+        let trace = `${a.functionName}.${a.fileName}:${a.line}`
+        eel.Front_Log(input_str, trace, level)()
+        console.log(input_str)
+        // return a
+
+    }
+}
+
+window.logger = new Logger()
+
+function getCallerInfo() {
+
+    // uses an error to get the stack and get the info from within 
+    // when creatin the error object it does not rain an error (as it need to be raised to actually happend)
+    const err = new Error();
+    const stackLines = err.stack.split("\n");
+    
+    // removing eel background stack
+    stackLines.pop()
+    
+    const callerLine = stackLines[1]; // Index 2 is the calling function
+    const match = callerLine.match(/at (\S+) \((.*):(\d+):(\d+)\)/) || callerLine.match(/at (.*):(\d+):(\d+)/);
+
+    if (match) {
+        return {
+            functionName: match[1] || "anonymous",
+            fileName: match[2].split("/").pop() || "unknown",
+            line: match[3],
+            column: match[4]
+        };
+    }
+
+    return { functionName: "unknown", fileName: "unknown", line: "?", column: "?" };
+}
+
 
 
 
@@ -274,8 +343,8 @@ class Loc_Button{
     async Tape_Loc_Response_stat(){
         let response = await eel.Tape_Command("Get_Status")();
         console.info(response);
-        if (response == "10"){
-            // console.info("loc in wine mode")
+        if (response == "locate wind"){
+            console.info("loc in wine mode")
         }
         else{
             console.info("loc stoped Winding");

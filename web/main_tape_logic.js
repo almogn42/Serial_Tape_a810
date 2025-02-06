@@ -2,7 +2,7 @@
 // async  function Run_Back_Function(func, dat){
 //     // a function to run functions from backend
 //     // write the backend function \ command to console 
-//     console.log(`eel.${func}("${dat}")`);
+//     logger.Extra_Log(`eel.${func}("${dat}")`);
 //     // executing the function dynamaclly
 //     return await eel[func](dat)();
 //     }
@@ -10,7 +10,7 @@
     async  function Run_Back_Function(func, dat){
         // a function to run functions from backend
         // write the backend function \ command to console 
-        console.log(`eel.${func}("${dat}")`);
+        logger.Extra_Log(`eel.${func}("${dat}")`);
         // executing the function dynamaclly
         let resp = await eel[func](dat)();
         return resp
@@ -26,7 +26,7 @@ async function Timer_run(){
 function Tape_Play(event){
     // running command
     let btn = document.querySelector("#play_btn");
-    eel.Tape_Command("Play")(n => {console.log(n)});
+    eel.Tape_Command("Play")(n => {logger.Extra_Log(n)});
 
     // running the display timer 
     Timer_run();
@@ -42,7 +42,7 @@ function Tape_Play(event){
 
 function Tape_Stop(event){
     // running the command
-    eel.Tape_Command("Stop")(n => {console.log(n)});
+    eel.Tape_Command("Stop")(n => {logger.Extra_Log(n)});
     // running the display timer 
     // display.Tape_stop();
     window.stop_button_Interval = setInterval(Tape_Stop_Response_stat, 500);    
@@ -56,9 +56,9 @@ function Tape_Stop(event){
 
 async function Tape_Stop_Response_stat(){
     let response = await eel.Tape_Command("Get_Status")();
-    console.info(response);
-    if (response == "84"){
-        console.info("loc stoped Wining");
+    logger.Extra_Log(response, level="info");
+    if (response == "stop achieved"){
+        logger.Extra_Log("Stop Achived", level="info");
         clearInterval(window.stop_button_Interval);
         display.Tape_stop()
         window.stop_button_Interval_status = "Stopped";
@@ -67,8 +67,8 @@ async function Tape_Stop_Response_stat(){
 
 function Tape_Record(event){
     let btn = document.querySelector("#rec_btn");
-    eel.Tape_Command("Record")(n => {console.log(n)});
-    console.log(event)
+    eel.Tape_Command("Record")(n => {logger.Extra_Log(n)});
+    logger.Extra_Log(event)
 
     // running the display timer 
     Timer_run();
@@ -84,7 +84,7 @@ function Tape_Record(event){
 
 function Tape_FF(event){
     let btn = document.querySelector("#FastForward_btn");
-    eel.Tape_Command("Foreword")(n => {console.log(n)});
+    eel.Tape_Command("Foreword")(n => {logger.Extra_Log(n)});
     // running the display timer 
     Timer_run();
     
@@ -99,7 +99,7 @@ function Tape_FF(event){
 
 function Tape_FB(event){
     let btn = document.querySelector("#FastBackward_btn");
-    eel.Tape_Command("Back")(n => {console.log(n)});
+    eel.Tape_Command("Back")(n => {logger.Extra_Log(n)});
     // running the display timer 
     Timer_run();
     
@@ -217,7 +217,7 @@ function Tape_Chanl_input_State(event){
         let DropDown = document.querySelectorAll('select.Channel_option');
         
         DropDown.forEach(DropDown => {
-            console.log("test")
+            logger.Extra_Log("test")
             let channel = DropDown.getAttribute("channel");
             DropDown.selectedIndex = selected_ind;
             // the HOLY CHECK ITSELEF IN THE NAME OF MOTEHRFU!@#                            
@@ -261,7 +261,7 @@ function Tape_Chanl_input_join(event){
 function Tape_Zero_loc(event){
     let btn = event.currentTarget
     btn.TimeStamp = "00:00:00"
-    // eel.Tape_Command("LOC", '"00:00:00"')(n => {console.log(n)});
+    // eel.Tape_Command("LOC", '"00:00:00"')(n => {logger.Extra_Log(n)});
     Loc_Object.Tape_Loc(event);
 
 }
@@ -272,7 +272,7 @@ async function Set_Timer(){
     let conf = confirm("Are you sure you want to reset the timer? \nThis will set the tape timer to whatever number is on the Add Loc time display!");
         if(conf){
             let TimeStamp = `"${ await Loc_Object.Get_TimeStamp()}"`;
-            eel.Tape_Command("Set_Timer", TimeStamp)(n => {console.log(n)});
+            eel.Tape_Command("Set_Timer", TimeStamp)(n => {logger.Extra_Log(n)});
             display.disp.innerHTML = TimeStamp.replaceAll('"','');
         }
         else{return "ya pussy"}
@@ -283,7 +283,7 @@ async function Set_Timer(){
 async function Add_Loc_Time_btn(current= false){
     // initiating 
     loc_btn = await Loc_Object.Add_Loc_Time_btn(current)
-    console.log("---------------------------------------")
+    logger.Extra_Log("---------------------------------------")
     return loc_btn;
 }
 
@@ -381,7 +381,7 @@ function On_Load_Init(){
 }
 
 // Creating Tape Object (Connecting and such) at the start of the page (first thing)
-eel.Create_Tape_object()(n => {console.log(n)});
+// eel.Create_Tape_object()(n => {logger.Extra_Log(n)});
 
 // setting the channels to safe
 eel.Tape_Command("Channel_Safe", 1);

@@ -89,3 +89,28 @@ body {
     box-shadow: inset 0px 0px 5px rgba(0, 255, 0, 0.6);
     grid-column: span 2;
 }
+
+/* Setting for dialog ? */
+
+dialog{
+    background-color: #44444400;
+    border: 1px solid #777;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 1.5em;
+
+
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(0.4em);   
+}
+
+#dialog_div{
+    display: flex;
+    /* grid-template-columns: repeat(2, 1fr); */
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+
+}
