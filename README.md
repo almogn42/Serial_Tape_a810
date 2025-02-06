@@ -1,50 +1,20 @@
 # Serial Tape A810+
 A Studer A8xx series software controller via serial connection
 
+<!-- TOC -->
+
+- [App Insructions](#App-Instructions)
+- [Bineries Download](#Download-&-Executables)
+  - [Windows](#Windows)
+  - [Mac](#macos-m1-3)
+- [Running As Python Script\Code](#Runnig-the-Script)
+    - [Requirements](#Requirements)
+    - [Modules Installation](#Modules-Installation-Commands-\-Instructions)
+
+<!-- /TOC -->
+
 ![Tape visuals](https://github.com/almogn42/Serial_Tape_a810/blob/0daa5080887f1152cf56e86e43fd5f4645f5d4b0/tape_visuals.png)
 
-## Download & Executables
-**Requirements**
-  -  Chrome browser
-
-
-### Links
-MacOS (M1-3):
-https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/arm-mac-Serial-Tape-a810+.app.rar
-
-Windows:
- -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+-Faster-load-time.rar
-     *   The file can only run from within the source code folder, so our recommendation is to create a shortcut and place it in an easy to reach location
- -  Single file Version - https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+.exe
-     *  The single file version is slower as it downloads the neccassery protocols every time it runs, use this only if you're patient ;-)
-
-## Runnig the Script
-
-**Requirements**
-  - Python3
-  - Chrome browser
-  Libraries:
-  - eel
-  - pyserial
-
-## Module's Installation Commands \ Instructions
-
-***These instructions refer to a script written in python3, so please note that every time the word python is mentioned we're talking about python3. Make adjustments according to whatever version or OS you're working on.**
-
-*eel*
-```
-python -m pip install eel
-```
-
-*pyserial*
-```
-python -m pip install pyserial
-```
-
-**using the requirement**
-```
-python -m pip install -r ./requerments.txt
-```
 
 ## App Instructions
 
@@ -63,11 +33,57 @@ Let's go over some added features as the most common ones (PLAY, STOP etc.) are 
 - Link CH: enables you to link channel status changes. Upon startup channels are not linked.
 
 
-Please note:
-This script was written for the Studer A810 machine family.
+**Please note:**
+
+**This script was written for the Studer A810 machine family.
 PLAY, STOP, FF, REWIND, REC, INPUT status and SAFE status *should* also work on Studer 27x, 807, 812 and 820. 
 Location coding is a bit different for some of the machine families so YMMV.
-Please consult the added documantation here on a full list of all available commands your machine can read - you're welcome to edit the code and add/revise it as you need!
+Please consult the added documantation here on a full list of all available commands your machine can read - you're welcome to edit the code and add/revise it as you need!**
+
+
+## Download & Executables
+**Requirements**
+  -  Chrome browser
+
+
+### Links
+#### MacOS (M1-3):
+https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/Studer.Serial.A810+_MacOS.zip
+
+#### Windows:
+ -  Folder: https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-x64-Serial-Tape-a810+-Faster-load-time.zip
+     *   The file can only run from within the source code folder, so our recommendation is to create a shortcut and place it in an easy to reach location
+ -  Single file Version - https://github.com/almogn42/Serial_Tape_a810/releases/download/windows2/windows-Serial-Tape-a810+.exe
+     *  The single file version is slower as it downloads the neccassery protocols every time it runs, use this only if you're patient ;-)
+
+## Runnig the Script
+
+#### **Requirements**
+  - Python3
+  - Chrome browser
+  - **Libraries:**
+    - eel
+    - pyserial
+
+## Modules Installation Commands \ Instructions
+
+***These instructions refer to a script written in python3, so please note that every time the word python is mentioned we're talking about python3. Make adjustments according to whatever version or OS you're working on.**
+
+*eel*
+```
+python -m pip install eel
+```
+
+*pyserial*
+```
+python -m pip install pyserial
+```
+
+**using the requirement**
+```
+python -m pip install -r ./requerments.txt
+```
+
 
 This app was designed for internal purposes at Rafsoda Studios and we're now offering it to the public, please use with caution - by using this software you assume all responsibility.
 
