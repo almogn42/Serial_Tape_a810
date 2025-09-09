@@ -23,6 +23,7 @@ async function Timer_run(){
 
 }
 
+
 function Tape_Play(event){
     // running command
     let btn = document.querySelector("#play_btn");
@@ -331,6 +332,8 @@ Clarifications:
     using the Set Timer button.
     Please note: the app's digital counter can ONLY accept full timestamps.
     For Example: [-06:00:05], [08:59:42], [00:00:00]
+
+the current Version is 1.2
 `)
     let pre = document.querySelector("pre");
     pre.innerHTML =text
