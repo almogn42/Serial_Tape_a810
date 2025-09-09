@@ -39,6 +39,13 @@ async function mechine_selection(event){
 
 
 function create_buttons(btn_list){
+    // creting a case for when there is no serial device
+    if(typeof(btn_list) == "string"){
+        let main_text = document.querySelector("h3")
+        main_text.innerHTML = "There seem to be No serial device connected <br>Please make sure the serial device is connected well and press f5"
+        return "no device found"
+    }
+    // Creting Buttons
     center = document.querySelector(".controls-left")
     btn_list.forEach(b => {
         let btn = document.createElement('button');
@@ -49,7 +56,6 @@ function create_buttons(btn_list){
         btn.addEventListener("click", connection_selection)
     });
 }
-
 function create_mechine_select_buttons (mech_list){
     let diag_div = document.querySelector("#dialog_div");
     // let mech_list = await eel.Get_Supported_Tapes()();
