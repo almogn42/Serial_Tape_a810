@@ -1,12 +1,11 @@
 async  function Run_Back_Function(func, dat){
     // a function to run functions from backend
     // write the backend function \ command to console 
-    logger.Extra_Log(`eel.${func}("${dat}")`);
+    logger.Extra_Log(`pywebview.api.${func}("${dat}")`);
     // executing the function dynamaclly
-    return await eel[func](dat);
+    return await pywebview.api[func](dat);
     }
 
-eel.expose(go_to_page)
 function go_to_page(url) {window.location.replace(url);};
 
 
@@ -24,7 +23,8 @@ function conn_check(ret){
 //  when cliking the button a function to send to tape creation the correct port
 async function connection_selection(event){
     port = this.id;
-    await eel.connecting_serial(port)(n => {logger.Extra_Log(n)});
+    const result = await pywebview.api.connecting_serial(port);
+    logger.Extra_Log(result);
     let diag = document.querySelector("dialog");
     diag.showModal();
 }
@@ -32,7 +32,7 @@ async function connection_selection(event){
 // when cliking the button a function to send to tape creation the correct machine type
 async function mechine_selection(event){
     mechine = this.id;
-    await eel.Create_Tape_object(mechine)()
+    await pywebview.api.Create_Tape_object(mechine);
     go_to_page("tape_interface3.html")
     
 }
@@ -58,7 +58,7 @@ function create_buttons(btn_list){
 }
 function create_mechine_select_buttons (mech_list){
     let diag_div = document.querySelector("#dialog_div");
-    // let mech_list = await eel.Get_Supported_Tapes()();
+    // let mech_list = await pywebview.api.Get_Supported_Tapes();
     mech_list.forEach(mechine => {
         let btn = document.createElement('button');
         btn.id = mechine.split(" ").pop();
@@ -69,6 +69,10 @@ function create_mechine_select_buttons (mech_list){
     })
     }
 
-// Creating the buttons 
-eel.connecting_serial()(create_buttons);
-eel.Get_Supported_Tapes()(create_mechine_select_buttons);
+// Creating the buttons - wait for pywebview to be ready
+window.addEventListener('pywebviewready', async function() {
+    const ports = await pywebview.api.connecting_serial();
+    create_buttons(ports);
+    const machines = await pywebview.api.Get_Supported_Tapes();
+    create_mechine_select_buttons(machines);
+});

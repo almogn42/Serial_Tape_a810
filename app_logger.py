@@ -7,7 +7,7 @@ from functools import wraps
 #  for creating  log folder
 import os
 # for front logging
-from eel import expose
+# from eel import expose
 
 
 ##########################

@@ -1,2 +1,5 @@
 READ ME.txt
 venv
+__pycache__/app_logger.cpython-312.pyc
+__pycache__/serial_console.cpython-312.pyc
+log/app.log

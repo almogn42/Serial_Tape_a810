@@ -10,9 +10,9 @@
     async  function Run_Back_Function(func, dat){
         // a function to run functions from backend
         // write the backend function \ command to console 
-        logger.Extra_Log(`eel.${func}("${dat}")`);
+        logger.Extra_Log(`pywebview.api.${func}("${dat}")`);
         // executing the function dynamaclly
-        let resp = await eel[func](dat)();
+        let resp = await pywebview.api[func](dat);
         return resp
         }
 
@@ -27,7 +27,7 @@ async function Timer_run(){
 function Tape_Play(event){
     // running command
     let btn = document.querySelector("#play_btn");
-    eel.Tape_Command("Play")(n => {logger.Extra_Log(n)});
+    pywebview.api.Tape_Command("Play");
 
     // running the display timer 
     Timer_run();
@@ -43,7 +43,7 @@ function Tape_Play(event){
 
 function Tape_Stop(event){
     // running the command
-    eel.Tape_Command("Stop")(n => {logger.Extra_Log(n)});
+    pywebview.api.Tape_Command("Stop");
     // running the display timer 
     // display.Tape_stop();
     window.stop_button_Interval = setInterval(Tape_Stop_Response_stat, 500);    
@@ -56,7 +56,7 @@ function Tape_Stop(event){
 }
 
 async function Tape_Stop_Response_stat(){
-    let response = await eel.Tape_Command("Get_Status")();
+    let response = await pywebview.api.Tape_Command("Get_Status");
     logger.Extra_Log(response, level="info");
     if (response == "stop achieved"){
         logger.Extra_Log("Stop Achived", level="info");
@@ -68,7 +68,7 @@ async function Tape_Stop_Response_stat(){
 
 function Tape_Record(event){
     let btn = document.querySelector("#rec_btn");
-    eel.Tape_Command("Record")(n => {logger.Extra_Log(n)});
+    pywebview.api.Tape_Command("Record");
     logger.Extra_Log(event)
 
     // running the display timer 
@@ -85,7 +85,7 @@ function Tape_Record(event){
 
 function Tape_FF(event){
     let btn = document.querySelector("#FastForward_btn");
-    eel.Tape_Command("Foreword")(n => {logger.Extra_Log(n)});
+    pywebview.api.Tape_Command("Foreword");
     // running the display timer 
     Timer_run();
     
@@ -100,7 +100,7 @@ function Tape_FF(event){
 
 function Tape_FB(event){
     let btn = document.querySelector("#FastBackward_btn");
-    eel.Tape_Command("Back")(n => {logger.Extra_Log(n)});
+    pywebview.api.Tape_Command("Back");
     // running the display timer 
     Timer_run();
     
@@ -128,12 +128,12 @@ function Tape_Chanl_State(event){
             // managing glow and state (like light behind button)
             if(btn.classList.length > 2){
                 btn.classList.remove("clicked");
-                eel.Tape_Command("Channel_Safe", channel);
+                pywebview.api.Tape_Command("Channel_Safe", channel);
                 btn.innerHTML = "SAFE";
                 }
             else{
                 btn.classList.add("clicked");
-                eel.Tape_Command("Channel_Ready", channel);
+                pywebview.api.Tape_Command("Channel_Ready", channel);
                 btn.innerHTML = "READY";
             }
         })}
@@ -142,12 +142,12 @@ function Tape_Chanl_State(event){
         // managing glow and state (like light behind button)
         if(btn.classList.length > 2){
             btn.classList.remove("clicked");
-            eel.Tape_Command("Channel_Safe", channel);
+            pywebview.api.Tape_Command("Channel_Safe", channel);
             btn.innerHTML = "SAFE";
             }
         else{
             btn.classList.add("clicked");
-            eel.Tape_Command("Channel_Ready", channel);
+            pywebview.api.Tape_Command("Channel_Ready", channel);
             btn.innerHTML = "READY";
         }      
     } 
@@ -170,12 +170,12 @@ function Tape_Chanl_Mute(event){
             // managing glow and state (like light behind button)
             if(btn.classList.length > 2){
                 btn.classList.remove("clicked");
-                eel.Tape_Command("Channel_Mute_Off", channel);
+                pywebview.api.Tape_Command("Channel_Mute_Off", channel);
                 // btn.innerHTML = "SAFE";
                 }
             else{
                 btn.classList.add("clicked");
-                eel.Tape_Command("Channel_Mute", channel);
+                pywebview.api.Tape_Command("Channel_Mute", channel);
                 // btn.innerHTML = "READY";
             }
         })}
@@ -185,12 +185,12 @@ function Tape_Chanl_Mute(event){
         // managing glow and state (like light behind button)
         if(btn.classList.length > 2){
             btn.classList.remove("clicked");
-            eel.Tape_Command("Channel_Mute_Off", channel);
+            pywebview.api.Tape_Command("Channel_Mute_Off", channel);
             // btn.innerHTML = "SAFE";
             }
         else{
             btn.classList.add("clicked");
-            eel.Tape_Command("Channel_Mute", channel);
+            pywebview.api.Tape_Command("Channel_Mute", channel);
             // btn.innerHTML = "READY";
         }
     }
@@ -222,12 +222,12 @@ function Tape_Chanl_input_State(event){
             let channel = DropDown.getAttribute("channel");
             DropDown.selectedIndex = selected_ind;
             // the HOLY CHECK ITSELEF IN THE NAME OF MOTEHRFU!@#                            
-            if(INPUT_OPTIONS[val] != undefined){eel.Tape_Command(INPUT_OPTIONS[val], channel);}
+            if(INPUT_OPTIONS[val] != undefined){pywebview.api.Tape_Command(INPUT_OPTIONS[val], channel);}
             })}
     
     else{
         // the HOLY CHECK ITSELEF IN THE NAME OF MOTEHRFU!@#                            
-        if(INPUT_OPTIONS[val] != undefined){eel.Tape_Command(INPUT_OPTIONS[val], channel);}
+        if(INPUT_OPTIONS[val] != undefined){pywebview.api.Tape_Command(INPUT_OPTIONS[val], channel);}
         }
     
 }
@@ -273,7 +273,7 @@ async function Set_Timer(){
     let conf = confirm("Are you sure you want to reset the timer? \nThis will set the tape timer to whatever number is on the Add Loc time display!");
         if(conf){
             let TimeStamp = `"${ await Loc_Object.Get_TimeStamp()}"`;
-            eel.Tape_Command("Set_Timer", TimeStamp)(n => {logger.Extra_Log(n)});
+            pywebview.api.Tape_Command("Set_Timer", TimeStamp);
             display.disp.innerHTML = TimeStamp.replaceAll('"','');
         }
         else{return "ya pussy"}
@@ -300,10 +300,9 @@ function validateNumber(event,field) {
 
 function Tape_get_ips(){
     let field = document.querySelector("#ips_value");
-    eel.Tape_Command("Get_Ips")(ips =>{
+    pywebview.api.Tape_Command("Get_Ips").then(ips => {
         if(["3.75","7.5","15","30" ].includes(ips)){field.innerHTML = ips}
         else{alert(ips)}
-        
     })
 }
 
@@ -384,11 +383,11 @@ function On_Load_Init(){
 }
 
 // Creating Tape Object (Connecting and such) at the start of the page (first thing)
-// eel.Create_Tape_object()(n => {logger.Extra_Log(n)});
+// pywebview.api.Create_Tape_object();
 
 // setting the channels to safe
-eel.Tape_Command("Channel_Safe", 1);
-eel.Tape_Command("Channel_Safe", 2);
+pywebview.api.Tape_Command("Channel_Safe", 1);
+pywebview.api.Tape_Command("Channel_Safe", 2);
 
 // adding event listener to create variables on the finish of dom load
 document.addEventListener("DOMContentLoaded", On_Load_Init);
