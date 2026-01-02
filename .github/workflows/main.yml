@@ -1,6 +1,6 @@
 
 name: Python_Mac_Compiler
-run-name: comping Tape on - ${{runner.os}} 
+run-name: comping Tape on - mac
 on:
   workflow_dispatch:
 
