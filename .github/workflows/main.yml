@@ -6,7 +6,7 @@ on:
 
 jobs:
   mac_compiler:
-    runs-on: macos-
+    runs-on: macos-latest
     steps:
       - name: cloner
         uses: actions/checkout@v5
