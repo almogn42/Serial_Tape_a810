@@ -1,0 +1,17 @@
+
+name: Python_Mac_Compiler
+run-name: comping Tape on - mac
+on:
+  workflow_dispatch:
+
+jobs:
+  mac_compiler:
+    runs-on: macos-
+    steps:
+      - name: cloner
+        uses: actions/checkout@v5
+        with:
+          ref: "PyWebview_version"
+      - name: list files
+        run: ls ${{ github.workspace }}
+    
