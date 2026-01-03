@@ -28,6 +28,15 @@ jobs:
         run: python3 -m nuitka --standalone --onefile --macos-create-app-bundle --macos-app-icon=icon.icns --include-data-dir=web=web --follow-imports Tape_Remote.py
       - run: ls 
       
+      - name: uploading \ outputing compilled file
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS-conmpiled-tape.app
+          path: ./Tape_Remote.app
+
+
+      
+      
 
 
 
