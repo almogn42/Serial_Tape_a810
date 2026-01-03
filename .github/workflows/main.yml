@@ -14,4 +14,22 @@ jobs:
           ref: "PyWebview_version"
       - name: list files
         run: ls ${{ github.workspace }}
+      - name: installing python
+        uses: actions/setup-python@v6
+        with: 
+          python-version: 3.13
+      
+      - name: installing libreries
+        run: |
+          cd ${{ github.workspace }}
+          pip install ./requerments.txt
+
+      - name: compiling the script 
+        run: python3 -m nuitka --standalone --onefile --macos-create-app-bundle --macos-app-icon=icon.icns --include-data-dir=web=web --follow-imports Tape_Remote.py
+      - run: ls 
+      
+
+
+
+        
     
