@@ -2,9 +2,9 @@
 async  function Run_Back_Function(func, dat){
     // a function to run functions from backend
     // write the backend function \ command to console 
-    console.log(`eel.${func}("${dat}")`);
-    // executing the function dynamaclly
-    var resp = await eel[func](dat)();
+    console.log(`pywebview.api.${func}("${dat}")`);
+    // executing the function dynamically via pywebview API
+    var resp = await window.pywebview.api[func](dat);
     return resp
     }
 
@@ -44,7 +44,10 @@ class Logger{
         let a = this.getCallerInfo()
 
         let trace = `${a.functionName}.${a.fileName}:${a.line}`
-        eel.Front_Log(input_str, trace, level)()
+        // send to backend logger via pywebview API (fire-and-forget)
+        if (window.pywebview && window.pywebview.api && window.pywebview.api.Front_Log) {
+            window.pywebview.api.Front_Log(input_str, trace, level).catch(() => {});
+        }
         console.log(input_str)
         // return a
 
@@ -133,9 +136,10 @@ class Display{
     }
 
     async Display_Tape(){
-        let a = await eel.Tape_Command("Timer_Return")(n => {
+        try {
+            let n = await window.pywebview.api.Tape_Command("Timer_Return");
             document.querySelector(".display").innerHTML = n;
-        })
+        } catch (e) { console.error(e); }
     }
 
     Tape_start = () => {
@@ -194,7 +198,7 @@ class Loc_Button{
 
         if(current == true){
             // return Run_Back_Function("Timer_Return")
-            let timestamp = await eel.Tape_Command("Timer_Return")();
+            let timestamp = await window.pywebview.api.Tape_Command("Timer_Return");
             let [loc_h, loc_m, loc_s] = document.querySelectorAll(".time_field");
             console.log(`first - ${timestamp}`);
                 // timestamp = timestamp.split(":");
@@ -318,8 +322,8 @@ class Loc_Button{
             
             Loc_Object.interval_status = "Running";
             
-            if(display.update_state == true){
-                await eel.Tape_Command("LOC",loc_time)();
+                if(display.update_state == true){
+                await window.pywebview.api.Tape_Command("LOC",loc_time);
                 Loc_Object.loc_button_Interval = setInterval(Loc_Object.Tape_Loc_Response_stat, 500);
                 }
         
@@ -341,7 +345,7 @@ class Loc_Button{
     }
 
     async Tape_Loc_Response_stat(){
-        let response = await eel.Tape_Command("Get_Status")();
+           let response = await window.pywebview.api.Tape_Command("Get_Status");
         console.info(response);
         if (response == "locate wind"){
             console.info("loc in wine mode")

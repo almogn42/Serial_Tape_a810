@@ -87,7 +87,7 @@ class API:
             print_info("connecting...")
             print_info(f"connected - Machine {Mechine}")
             print_info(self.Tape)
-            return self.Tape
+            return "fTape {Mechine} Created"
 
     @Logging_Decor
     def Tape_Command(self, command="list_commands", command_args="None"):
@@ -151,6 +151,7 @@ window = webview.create_window(
     width=874,
     height=970,
     resizable=False,
+    # resizable=True,
     js_api=api
 )
 

@@ -348,10 +348,12 @@ function diag_close(){
 function On_Load_Init(){
     // a function to run all the things that need to run at the start of the page but dependant on dom :-)
 
+    console.log("DOM Loaded - Initializing Variables");
     // Display Object init
     window.display = new Display(document.querySelector(".display"));
     //  for having loc methood later on
     window.Loc_Object = new Loc_Button()
+
 
     // filling fields
     Tape_get_ips();
@@ -382,13 +384,25 @@ function On_Load_Init(){
 
 }
 
-// Creating Tape Object (Connecting and such) at the start of the page (first thing)
-// pywebview.api.Create_Tape_object();
+function On_Load_Api_Obj(){
+    // a function to run all the things that need to run at the start of the page but dependant on Api object of pywebview 
+    // pywebview create the object a bit after dom apperently  
+    
+    console.log("running On_Load_Api_Obj");
+    // setting the channels to safe
+    pywebview.api.Tape_Command("Channel_Safe", 1);
+    pywebview.api.Tape_Command("Channel_Safe", 2);
 
-// setting the channels to safe
-pywebview.api.Tape_Command("Channel_Safe", 1);
-pywebview.api.Tape_Command("Channel_Safe", 2);
+    // adding event listener to create variables on the finish of dom load only after api object creation
+    if (document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", On_Load_Init);
+        }
+    else{
+        On_Load_Init();
+    }
+    
+}
 
-// adding event listener to create variables on the finish of dom load
-document.addEventListener("DOMContentLoaded", On_Load_Init);
+
+window.addEventListener("pywebviewready", On_Load_Api_Obj);
 
